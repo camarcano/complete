@@ -516,7 +516,12 @@ while cap.isOpened():
         diff1 = frames_list[-2] - frames_list[-3] # calculate difference between last two elements and second-to-last two elements
         diff2 = frames_list[-1] - frames_list[-2] # calculate difference between last two elements and last two elements
         if diff1 > 0 and diff2 < 0: # check if difference goes from positive to negative
-            positions = [] # reset list if condition is met
+            #positions = [] # reset list if condition is met
+            # calculate the midpoint of the list
+            midpoint = int(len(positions)*0.8)
+
+            # delete the first half of the list
+            del positions[:midpoint]
     # draw dots for baseball in current frame
     for pos in positions:
         cv2.circle(frame, pos, 3, (0, 255, 0), -1)
