@@ -90,6 +90,7 @@ def save_to_file(player, player_data):
 filename = 'best.pt'
 
 if not os.path.isfile(filename):
+    print('We need to download the model, proceeding...')
     url = f'https://download1586.mediafire.com/73inz0f80mhgFIVaBia4uZ5bh7I8zqqnU2LGopoJF2zgEwueJoAlhCYHNwxP9qj4eO-6LFVJjoHl4bTQJ-NAcQTsiDQ/ag8fmc41h53o9z6/{filename}'
     urllib.request.urlretrieve(url, filename)
     print(f'Downloaded {filename} to current directory.')
