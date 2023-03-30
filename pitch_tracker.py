@@ -16,7 +16,6 @@ from ultralytics import YOLO
 import urllib.request
 
 
-
 def find_video_links(webpage_html):
     """ Extracts the portion of the link that points to
     the video file """
