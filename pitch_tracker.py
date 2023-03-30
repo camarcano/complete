@@ -12,7 +12,6 @@ import unicodecsv as csv
 from fuzzywuzzy import fuzz
 import lxml
 import cv2
-from moviepy.editor import VideoFileClip, concatenate_videoclips, CompositeVideoClip, ColorClip
 from ultralytics import YOLO
 import urllib.request
 
