@@ -2,3 +2,5 @@ best.pt
 /.venv
 /.vscode
 complete.code*
+*.mp4
+*.txt
