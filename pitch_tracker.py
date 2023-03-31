@@ -14,6 +14,7 @@ import lxml
 import cv2
 from ultralytics import YOLO
 import urllib.request
+import random
 
 
 def find_video_links(webpage_html):
@@ -231,9 +232,15 @@ else:
 
 log_videos = [matching_df['MLBNAME'].iloc[0], start_date, end_date,
              pitch, str(len(df2))]
+print(f'There are {log_videos[-1]} videos in total.')
 down = input("Do you want to download the pitches? (y/n): ")
 
 if (down.lower() == 'y'):
+    print(f'How many videos do you want to download? (0 for all)')
+    num_elements = int(input())
+    if num_elements > 0:
+        while len(result) > num_elements:
+            del result[random.randint(0, len(result)-1)]
     download_all_matches(result)
     rename(os.getcwd())
 
