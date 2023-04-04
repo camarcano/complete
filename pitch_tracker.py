@@ -491,6 +491,7 @@ total_balls = count_class_16_files(labels_folder)
 counter = 0
 whole = 0
 frames_list = []
+gradient = []
 while cap.isOpened():
     ret, frame = cap.read()
     if not ret:
@@ -499,7 +500,6 @@ while cap.isOpened():
     # get corresponding txt file for current frame
     frame_number = int(cap.get(cv2.CAP_PROP_POS_FRAMES))
     label_file = os.path.join(labels_folder, f'{short_file}_{frame_number}.txt')
-
     # check if txt file exists and contains object with class 16
     if os.path.isfile(label_file):
         with open(label_file, 'r') as f:
@@ -514,7 +514,7 @@ while cap.isOpened():
                     center_y = int(y * frame_size[1])
                     positions.append((center_x, center_y))
                     print(counter/whole)
-                    
+                    gradient.append(counter/whole)
                     #if counter>=int(total_balls*0.95):
                     #    del positions[:2]
 
@@ -525,10 +525,10 @@ while cap.isOpened():
         if diff1 > 0 and diff2 < 0: # check if difference goes from positive to negative
             #positions = [] # reset list if condition is met
             # calculate the midpoint of the list
-            midpoint = int(len(positions)*0.8)
+            midpoint = int(len(positions)*0.6)
 
             # delete the first half of the list
-            del positions[:midpoint]
+            del positions[:int(midpoint*1.25)]
     # draw dots for baseball in current frame
     for pos in positions:
         cv2.circle(frame, pos, 3, (0, 255, 0), -1)
