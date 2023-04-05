@@ -528,7 +528,7 @@ while cap.isOpened():
             midpoint = int(len(positions)*0.6)
 
             # delete the first half of the list
-            del positions[:int(midpoint*1.25)]
+            del positions[:int(midpoint*0.8)]
     # draw dots for baseball in current frame
     for pos in positions:
         cv2.circle(frame, pos, 3, (0, 255, 0), -1)
