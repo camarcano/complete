@@ -525,7 +525,7 @@ while cap.isOpened():
         if diff1 > 0 and diff2 < 0: # check if difference goes from positive to negative
             #positions = [] # reset list if condition is met
             # calculate the midpoint of the list
-            midpoint = int(len(positions)*0.6)
+            midpoint = int(len(positions)*0.8)
 
             # delete the first half of the list
             del positions[:int(midpoint*0.8)]
