@@ -217,7 +217,7 @@ if len(matches) <= 1:
     sys.exit()
 
 pitches = ['EP', 'CU', 'CH', 'SI', 'SL', 'FF', 'FA', 'FC',
-           'KC', 'FS', 'CS', 'PO', 'IN', 'SC']
+           'KC', 'FS', 'CS', 'PO', 'IN', 'SC', 'FO']
 pitch = input("Enter pitch  type: ")
 pitch = pitch.upper()
 if pitch.upper() in pitches:
